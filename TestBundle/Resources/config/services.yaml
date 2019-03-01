@@ -1,0 +1,16 @@
+services:
+  # Si on a des repositories...
+  Bluesquare\TestBundle\Repository\:
+    resource: '../../Repository'
+    autowire: true
+    tags: ['doctrine.repository_service']
+
+  # Services : alias
+  Bluesquare\TestBundle\Service\FooService: '@bluesquare.test_bundle.foo'
+
+  # Services : params
+  bluesquare.test_bundle.foo:
+    class: Bluesquare\TestBundle\Service\FooService
+    autowire: true
+    public: true
+    arguments: ['@request_stack']

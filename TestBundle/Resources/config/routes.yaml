@@ -1,0 +1,3 @@
+bluesquare_test_bundle_test:
+    path:     /test
+    controller: Bluesquare\TestBundle\Controller\MainController::index
