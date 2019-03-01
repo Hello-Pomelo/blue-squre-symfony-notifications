@@ -32,7 +32,7 @@ class Notification
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="\App\Entity\User")
      */
     private $user;
 
