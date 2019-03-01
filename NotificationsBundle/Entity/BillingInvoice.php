@@ -1,11 +1,11 @@
 <?php
 
-namespace Bluesquare\TestBundle\Entity;
+namespace Bluesquare\NotificationsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Bluesquare\TestBundle\Repository\BillingInvoiceRepository")
+ * @ORM\Entity(repositoryClass="Bluesquare\NotificationsBundle\Repository\BillingInvoiceRepository")
  */
 class BillingInvoice
 {

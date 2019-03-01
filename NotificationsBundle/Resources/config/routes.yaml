@@ -1,0 +1,3 @@
+bluesquare_notifications_bundle_notifications:
+    path:     /test-notifs
+    controller: Bluesquare\NotificationsBundle\Controller\MainController::index

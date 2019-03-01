@@ -1,8 +1,8 @@
 <?php
 
-namespace Bluesquare\TestBundle\Repository;
+namespace Bluesquare\NotificationsBundle\Repository;
 
-use Bluesquare\TestBundle\Entity\BillingInvoice;
+use Bluesquare\NotificationsBundle\Entity\BillingInvoice;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 

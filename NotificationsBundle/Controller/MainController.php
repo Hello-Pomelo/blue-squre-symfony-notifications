@@ -1,8 +1,8 @@
 <?php
 
-namespace Bluesquare\TestBundle\Controller;
+namespace Bluesquare\NotificationsBundle\Controller;
 
-use Bluesquare\TestBundle\Service\FooService;
+use Bluesquare\NotificationsBundle\Service\FooService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -12,7 +12,7 @@ class MainController extends AbstractController
     {
         die($request->getMethod());
         // ON PEUT PAS INJECTER UN SERVICE DU BUNDLE EN QUESTION DANS LES ARGS DONC ON LE récupère ainsi :
-        $this->get('bluesquare.test_bundle.foo')->foo();
+        $this->get('bluesquare.notifications_bundle.foo')->foo();
         die('hello');
     }
 }

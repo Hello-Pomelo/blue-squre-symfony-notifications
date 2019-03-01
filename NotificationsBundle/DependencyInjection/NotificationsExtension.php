@@ -1,6 +1,6 @@
 <?php
 
-namespace Bluesquare\TestBundle\DependencyInjection;
+namespace Bluesquare\NotificationsBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 
-final class TestExtension extends Extension implements PrependExtensionInterface
+final class NotificationsExtension extends Extension implements PrependExtensionInterface
 {
     /**
      * {@inheritdoc}
@@ -22,7 +22,7 @@ final class TestExtension extends Extension implements PrependExtensionInterface
         $loader->load('services.yaml');
 
         $config = $this->processConfiguration(new Configuration(), $configs);
-        // $definition = $container->getDefinition('bluesquare.test_bundle.foo');
+        // $definition = $container->getDefinition('bluesquare.notifications_bundle.foo');
 
         return $config;
         // $this->configurePersistence($loader, $container, $config['provider']);
@@ -36,7 +36,7 @@ final class TestExtension extends Extension implements PrependExtensionInterface
      */
     public function getAlias()
     {
-        return 'bluesquare.test_bundle';
+        return 'bluesquare.notifications_bundle';
     }
 
     /**

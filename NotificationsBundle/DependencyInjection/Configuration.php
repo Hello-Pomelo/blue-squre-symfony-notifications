@@ -1,6 +1,6 @@
 <?php
 
-namespace Bluesquare\TestBundle\DependencyInjection;
+namespace Bluesquare\NotificationsBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

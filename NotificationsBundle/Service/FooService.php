@@ -1,6 +1,6 @@
 <?php
 
-namespace Bluesquare\TestBundle\Service;
+namespace Bluesquare\NotificationsBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
