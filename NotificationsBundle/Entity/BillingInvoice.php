@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="Bluesquare\NotificationsBundle\Repository\BillingInvoiceRepository")
  */
-class BillingInvoice
+class Notification
 {
     /**
      * @ORM\Id()
@@ -17,24 +17,22 @@ class BillingInvoice
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=191)
      */
-    private $azerty;
+    private $title;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    /**
+     * @ORM\Column(type="string", length=191)
+     */
+    private $data;
 
-    public function getAzerty(): ?string
-    {
-        return $this->azerty;
-    }
+    /**
+     * @ORM\Column(type="string", length=191)
+     */
+    private $description;
 
-    public function setAzerty(string $azerty): self
-    {
-        $this->azerty = $azerty;
-
-        return $this;
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     */
+    private $user;
 }
