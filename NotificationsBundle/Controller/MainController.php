@@ -6,37 +6,50 @@ use Bluesquare\NotificationsBundle\Entity\Notification;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * Oui, je throw des exceptions sans catch, c'est comme ça qu'on utilise ce framework proprement
- * https://symfony.com/doc/current/controller.html#managing-errors-and-404-pages
- *
  * Class MainController
  * @package Bluesquare\NotificationsBundle\Controller
  */
 class MainController extends AbstractController
 {
+    /**
+     * Get all the current user's notifications
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function getAll()
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        if(!($user = $this->getUser()))
+        {
+            return $this->json(["message" => "Please login"], 403);
+        }
 
         $notifssrv = $this->get('bluesquare.notifications_bundle.notifssrv');
-        $user = $this->getUser();
-
         $notifs = $notifssrv->getForUser($user, true);
+
         return $this->json($notifs);
     }
 
+    /**
+     * Delete a notifiation that belong to the current user.
+     *
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function delete($id)
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        if(!($user = $this->getUser()))
+        {
+            return $this->json(["message" => "Please login"], 403);
+        }
+
         $em = $this->getDoctrine()->getManager();
-        $user = $this->getUser();
         $notif = $em->getRepository(Notification::class)->find($id);
 
         if (!$notif)
-            throw $this->createNotFoundException('Notification not found');
+            return $this->json(["message" => "Notification not found"], 404);
 
         if ($notif->getUser() != $user)
-            throw $this->createAccessDeniedException();
+            return $this->json(["message" => "Access denied"], 403);
 
         $em->remove($notif);
         $em->flush();
@@ -44,18 +57,27 @@ class MainController extends AbstractController
         return $this->json(["message" => 'OK']);
     }
 
+    /**
+     * Mark a notification of the current user as 'Seen'
+     *
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function markSeen($id)
     {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        if(!($user = $this->getUser()))
+        {
+            return $this->json(["message" => "Please login"], 403);
+        }
+
         $em = $this->getDoctrine()->getManager();
-        $user = $this->getUser();
         $notif = $em->getRepository(Notification::class)->find($id);
 
         if (!$notif)
-            throw $this->createNotFoundException('Notification not found');
+            return $this->json(["message" => "Notification not found"], 404);
 
         if ($notif->getUser() != $user)
-            throw $this->createAccessDeniedException();
+            return $this->json(["message" => "Access denied"], 403);
 
         $notif->setSeenAt(new \DateTime());
 
@@ -66,6 +88,11 @@ class MainController extends AbstractController
 
     }
 
+    /**
+     * Test method that adds a dummy notification to the current user.
+     *
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
+     */
     public function test()
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
