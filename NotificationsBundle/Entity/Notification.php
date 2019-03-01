@@ -19,17 +19,17 @@ class Notification
     /**
      * @ORM\Column(type="string", length=191)
      */
-    private $title;
+    private $title = "";
 
     /**
      * @ORM\Column(type="string", length=191)
      */
-    private $data;
+    private $data = "";
 
     /**
      * @ORM\Column(type="string", length=191)
      */
-    private $description;
+    private $description = "";
 
     /**
      * @ORM\ManyToOne(targetEntity="\App\Entity\User")
@@ -37,12 +37,12 @@ class Notification
     private $user;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $deleted_at;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $seen_at;
 
