@@ -6,7 +6,7 @@ Ajout de notifications pour les users (backend seulement)
 ## Restrictions
 
 Votre classe User doit absoluement être dans le namespace \App\Entity et s'appeler User, soit etre
-\App\Entity\User.
+`\App\Entity\User\`.
 
 ## Routes:
 
@@ -18,16 +18,27 @@ notifications:
     resource: '@NotificationsBundle/Resources/config/routes.yaml'
 ```
 
-à votre config/routes.yaml
+à votre `config/routes.yaml`
+
+Il existe aussi le fichier `routes_dev.yaml` qui ajoute le endpoint à `/add-dev` qui permet 
+d'ajouter une notification de test à l'utilisateur courant.
 
 Pour créer des notifs, il faut utiliser le service. Effectivement on ne veut pas permettre
 aux clients de spammer les routes de notifications ou lire les notifs de toute le monde.
 Vous pouvez ajouter des routes dans votre application pour plus de flexibilité.
 
 
-* **GET** /notifications/my-user
+* **GET** /get
 
 Récupère toutes les notifications de l'utilisateur courant.
+
+* **DELETE** /delete/{id}
+
+Supprime la notification à l'id indiqué si elle appartient à l'user courant.
+
+* **POST** /mark-seen/{id}
+
+Marque la notifiquation à l'id indiqué comme lue si elle appartient à l'user courant.
 
 ## Service
 

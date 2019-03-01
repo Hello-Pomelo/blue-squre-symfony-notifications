@@ -1,3 +1,18 @@
-bluesquare_notifications_bundle_notifications:
-    path:     /my-user
-    controller: Bluesquare\NotificationsBundle\Controller\MainController::myUser
+bluesquare_notifications_bundle_notifications_get:
+    path:     /get
+    controller: Bluesquare\NotificationsBundle\Controller\MainController::getAll
+    methods: [GET]
+
+bluesquare_notifications_bundle_notifications_delete:
+    path:     /delete/{id}
+    controller: Bluesquare\NotificationsBundle\Controller\MainController::delete
+    methods: [DELETE]
+    requirements:
+        id: '\d+'
+
+bluesquare_notifications_bundle_notifications_mark_seen:
+    path:     /mark-seen/{id}
+    controller: Bluesquare\NotificationsBundle\Controller\MainController::markSeen
+    methods: [POST]
+    requirements:
+        id: '\d+'
