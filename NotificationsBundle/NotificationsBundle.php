@@ -2,8 +2,6 @@
 
 namespace Bluesquare\NotificationsBundle;
 
-use Bluesquare\NotificationsBundle\Entity\BillingInvoice;
-use Bluesquare\NotificationsBundle\Repository\BillingInvoiceRepository;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Bluesquare\NotificationsBundle\DependencyInjection\NotificationsExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
