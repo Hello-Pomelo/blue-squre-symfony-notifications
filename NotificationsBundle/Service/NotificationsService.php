@@ -51,8 +51,8 @@ class NotificationsService
     }
 
     /**
-     * Little shortcut to get all notification for a user
-     * This way you don't need to have a mnager or import notification.
+     * Little shortcut to get all of a user's notifications
+     * This way you don't need to have a manager or import the Notification class.
      *
      * If you want the return value to be associative arrays, set assoc to true
      *

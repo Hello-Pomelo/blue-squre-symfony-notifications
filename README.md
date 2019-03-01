@@ -65,3 +65,26 @@ Méthdodes:
 ## Entités
 
 * Notification: représente une notification pour un seul utilisateur
+
+## Exemple
+
+Exemple pour notifier des users:
+
+```php
+$notif = new Notification();
+$notif->setTitle("Bonjour");
+$notif->setDescription("Skippy vous attend dans son antre");
+$notif->setData("le_nom_de_la_route_en_react");
+
+$users = [$user]; // Peut contenir plein d'users
+$notifssrv->notifyUsers($users, $notif);
+```
+Pas besoin de persist la notification créée, le service se charge de perist tous les clones
+créés pour chacun des users.
+
+
+Les notifications devront être retouvées côté client avec le endpoint `/get`, qui n'est
+qu'une interface pour:
+```php
+$notifssrv->getForUser($this->getUser());
+```
