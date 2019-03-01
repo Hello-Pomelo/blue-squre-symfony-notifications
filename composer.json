@@ -5,8 +5,8 @@
     "license": "proprietary",
     "authors": [
         {
-            "name": "RENOU Maxime",
-            "email": "maxime@bluesquare.io"
+            "name": "COMBALDIEU Paul",
+            "email": "paul@bluesquare.io"
         }
     ],
     "type": "symfony-bundle",

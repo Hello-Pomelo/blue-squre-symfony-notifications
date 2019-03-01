@@ -6,11 +6,11 @@ services:
     tags: ['doctrine.repository_service']
 
   # Services : alias
-  Bluesquare\NotificationsBundle\Service\FooService: '@bluesquare.notifications_bundle.foo'
+  Bluesquare\NotificationsBundle\Service\NotificationsService: '@bluesquare.notifications_bundle.notifssrv'
 
   # Services : params
-  bluesquare.notifications_bundle.foo:
-    class: Bluesquare\NotificationsBundle\Service\FooService
+  bluesquare.notifications_bundle.notifssrv:
+    class: Bluesquare\NotificationsBundle\Service\NotificationsService
     autowire: true
     public: true
-    arguments: ['@request_stack']
+    arguments: ['@doctrine.orm.entity_manager']

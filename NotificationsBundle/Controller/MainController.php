@@ -10,9 +10,8 @@ class MainController extends AbstractController
 {
     public function index(Request $request)
     {
-        die($request->getMethod());
         // ON PEUT PAS INJECTER UN SERVICE DU BUNDLE EN QUESTION DANS LES ARGS DONC ON LE récupère ainsi :
-        $this->get('bluesquare.notifications_bundle.foo')->foo();
-        die('hello');
+        $r = $this->get('bluesquare.notifications_bundle.notifssrv')->foo();
+        die($r);
     }
 }
